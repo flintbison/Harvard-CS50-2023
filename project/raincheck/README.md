@@ -17,3 +17,7 @@ scaled/translated vertically so they are proportional to the time duration of th
 
 The forecasts and events are shown as two columns in parallel so when read as a vertical timeline the user can see which weather
 conditions and events coincide.
+
+#### Screenshot
+
+![alt text](raincheck-screenshot.jpg "Raincheck screenshot")
