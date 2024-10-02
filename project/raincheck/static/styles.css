@@ -1,0 +1,81 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+/* Additional styles */
+.weather-icon {
+    width: 72px;
+}
+
+.forecast-row {
+    height: 216px;
+    background-color: #c9d8e6;
+    color: black;
+    position: relative;
+}
+
+.forecast-row:nth-of-type(even){
+    background-color: #d6e5ee;
+}
+
+.hour-mark {
+    width: 24px;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+    right: 0;
+}
+
+.first-hour {
+    top: 33%;
+}
+
+.second-hour {
+    top: 66%;
+}
+
+.third-hour {
+    top: 99%;
+}
+
+.event-row {
+    background-color: #ffdd95;
+    color: black;
+    width: 230px;
+    position: absolute;
+    right: 0;
+    padding: 16px;
+}
+
+.event-row:nth-of-type(even){
+    background-color: #ffeabe;
+}
+
+.forecast-table {
+    padding-right: 230px;
+    position: relative;
+}
+
+.row {
+    --bs-gutter-x: 0 !important;
+}

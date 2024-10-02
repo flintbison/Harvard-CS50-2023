@@ -1,0 +1,40 @@
+/* Select the body element and make it take up 100% of the container width upto a limit of 800px max,
+give it auto margins so it is centered inside html element and make it have an internal padding of 24px */
+body {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 24px;
+}
+
+/* Select all img elements and make them have rounded corners */
+img {
+    border-radius: 8px;
+}
+
+/* Select images with class of cat-img and make them take up 100% of the container width */
+.cat-img {
+    width: 100%;
+}
+
+/* Select the element with id of about-img and make it take up 100% of the container width upto a limit of 400px max */
+#about-img {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Select the img element with class cartoon-coder and make it take up 100% of the container width upto a limit of 600px max */
+img.cartoon-coder {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Select all header elements and apply a dark red color to the text */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #cc0000;
+}

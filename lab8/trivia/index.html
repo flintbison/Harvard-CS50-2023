@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Pokemon trivia!</title>
+        <script>
+
+            // Listen for when DOM has loaded then execute the code within.
+            document.addEventListener("DOMContentLoaded", function() {
+
+                // Firstly, setup the logic for the multiple choice question
+
+                // Get the first element found with the class of .correct and assign to a variable named correct
+                let correct = document.querySelector(".correct");
+
+                // For the element .correct add an event listener which executes code when button is clicked
+                correct.addEventListener("click", function() {
+                    // Apply green to the button background
+                    correct.style.backgroundColor = "green";
+                    // Apply white to the button text so it stands out
+                    correct.style.color = "white";
+                    // Change the inner html content of the feedback1 p tag to read: Correct!
+                    document.querySelector("#feedback1").innerHTML = "Correct!";
+                });
+
+                // Get all the elements found with the class of .incorrect and assign that array to a variable named incorrect
+                let incorrects = document.querySelectorAll(".incorrect");
+
+                // Using a loop apply the following listener to each element:
+                // For each element .incorrect add an event listener which executes code when button is clicked
+                for (let i = 0; i < incorrects.length; i++) {
+                    incorrects[i].addEventListener("click", function() {
+                        // Apply red to the button background
+                        incorrects[i].style.backgroundColor = "red";
+                        // Apply white to the button text so it stands out
+                        incorrects[i].style.color = "white";
+                        // Change the inner html content of the feedback1 p tag to read: Incorrect!
+                        document.querySelector("#feedback1").innerHTML = "Incorrect";
+                    });
+                }
+
+                // Secondly, setup the logic for the free response question
+
+                // Get the button element with ID of submitFreeAnswer and add an event listener on the click event, which in turn executes the code within
+                document.querySelector("#submitFreeAnswer").addEventListener("click",function(){
+
+                    // Get the input element with the ID of freeInput
+                    let freeInput = document.querySelector("#freeInput");
+
+                    // Get the value from freeInput and apply a method to make it all lower case, then assign that string to the variable normalisedInput
+                    // This will normalise the answer given, so it does not matter if the user capitalises the word or not
+                    let normalisedInput = freeInput.value.toLowerCase()
+
+                    // If statement: compare the normalised input to see if it exactly equals the correct value of "japan" and if it does apply correct styling and feedback
+                    if (normalisedInput === "japan") {
+                        // Apply green to the input background
+                        freeInput.style.backgroundColor = "green";
+                        // Apply white to the input text so it stands out
+                        freeInput.style.color = "white";
+                        // Change the inner html content of the feedback2 p tag to read: Correct!
+                        document.querySelector("#feedback2").innerHTML = "Correct!";
+                    }
+                    // If answer is incorrect apply incorrect styling and feedback
+                    else {
+                        // Apply red to the input background
+                        freeInput.style.backgroundColor = "red";
+                        // Apply white to the input text so it stands out
+                        freeInput.style.color = "white";
+                        // Change the inner html content of the feedback2 p tag to read: Correct!
+                        document.querySelector("#feedback2").innerHTML = "Incorrect";
+                    }
+
+                });
+
+            });
+
+        </script>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>Pokemon trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is the name of Pokemon number 25 in the Pokedex?</h3>
+                <br>
+                <button class="incorrect">Charmander</button>
+                <button class="incorrect">Bulbasaur</button>
+                <button class="correct">Pikachu</button>
+                <button class="incorrect">Ditto</button>
+                <button class="incorrect">Hitmonlee</button>
+
+                <p id="feedback1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>From which country does Pokemon originate?</h3>
+                <input id="freeInput" type="text"></input>
+                <button id="submitFreeAnswer">Check answer</button>
+                <p id="feedback2"></p>
+            </div>
+        </div>
+    </body>
+
+</html>

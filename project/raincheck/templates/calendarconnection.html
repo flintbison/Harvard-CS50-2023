@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Calendar connection
+{% endblock %}
+
+{% block main %}
+    <h4>Calendar connection</h4>
+    <br>
+    <br>
+    {% if authorized %}
+        <a class="btn btn-danger" href="/revoke">Revoke connection</a>
+    {% else %}
+        <a class="btn btn-primary" href="/authorize">Authorize connection</a>
+    {% endif %}
+
+{% endblock %}

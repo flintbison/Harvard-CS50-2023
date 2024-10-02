@@ -1,0 +1,15 @@
+Context:
+Spotify Wrapped is a feature presenting Spotify users’ 100 most played songs from the past year. In 2021, Spotify Wrapped calculated an “Audio Aura” for each user,
+a “reading of [their] two most prominent moods as dictated by [their] top songs and artists of the year.” Suppose Spotify determines an audio aura by looking at the average energy,
+valence, and danceability of a person’s top 100 songs from the past year. In answers.txt, reflect on the following questions:
+
+Q1: If songs.db contains the top 100 songs of one listener from 2018, how would you characterize their audio aura?
+
+A1: I would first obtain the averages for energy, valence, and danceability of a person’s top 100 songs by using the query: "SELECT AVG(energy), AVG(valence), AVG(danceability) FROM songs;"
+These 3 values could then potentially be mapped to 3 channels of RGB to render the aura in a pleasing way.
+
+Q2: Hypothesize about why the way you’ve calculated this aura might not be very representative of the listener. What better ways of calculating this aura would you propose?
+
+A2: A flat average of the top 100 songs a user has played over the course of a year treats all songs equally, when in reality each song will have a different play count.
+A better way of sampling the musical taste might be to take a weighted average of energy, valence, and danceability by multiplying the values of each song by the play count of each song
+prior to averaging them.

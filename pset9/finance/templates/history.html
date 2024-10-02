@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Transaction history
+{% endblock %}
+
+{% block main %}
+<table class="table table-hover table-light">
+    <thead>
+        <tr>
+            <th class="text-start">
+                Symbol
+            </th>
+            <th class="text-start">
+                Name
+            </th>
+            <th class="text-end">
+                Shares
+            </th>
+            <th class="text-end">
+                Price
+            </th>
+            <th class="text-end">
+                Total
+            </th>
+            <th class="text-end">
+                Transacted
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in user_history %}
+        <tr>
+            <td class="text-start">
+                {{ transaction.symbol }}
+            </td>
+            <td class="text-start">
+                {{ transaction.name }}
+            </td>
+            <td class="text-end">
+                {{ transaction.shares }}
+            </td>
+            <td class="text-end">
+                {{ usd(transaction.price) }}
+            </td>
+            <td class="text-end">
+                {{ usd(transaction.price * transaction.shares) }}
+            </td>
+            <td class="text-end">
+                {{ transaction.datetime }}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

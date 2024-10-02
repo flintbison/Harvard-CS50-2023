@@ -1,0 +1,21 @@
+Times:
+
+10 simulations: 0m0.029s
+100 simulations: 0m0.030s
+1000 simulations: 0m0.036s
+10000 simulations: 0m0.104s
+100000 simulations: 0m0.748s
+1000000 simulations: 0m7.526s
+
+Questions:
+
+Which predictions, if any, proved incorrect as you increased the number of simulations?:
+
+That with each 10x increase of N, the time to execute may also increase 10x, it did not follow that trend, it was exponential rather than linear.
+
+Suppose you're charged a fee for each second of compute time your program uses.
+After how many simulations would you call the predictions "good enough"?:
+
+Probably 10'000 as that seems to offer a balance between accuracy and compute time.
+This is because at this number the exponential increase in compute time is beginning to ramp up.
+However the accuracy of the simulated percentages is still comparable to the higher numbers of N within a percentage or less.

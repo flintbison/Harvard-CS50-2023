@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    5-day Forecast
+{% endblock %}
+
+{% block main %}
+    <h4>5-day forecast for {{location_name}}</h4>
+    <br>
+    <br>
+    {% if not authorized %}
+        <div class="alert alert-warning" role="alert">
+            Currently only forecasts are shown. <a href="/calendarconnection" class="alert-link">Connect to your calendar</a> to compare forecasts to your planned events.
+        </div>
+    {% endif %}
+    {% if not authorized %}
+        <div class="container table-striped">
+    {% else %}
+        <div class="container table-striped forecast-table">
+    {% endif %}
+    {% for forecast in forecasts %}
+        <div class="row align-items-center forecast-row">
+            {% if authorized %}
+                <div class="hour-mark first-hour"></div>
+                <div class="hour-mark second-hour"></div>
+                <div class="hour-mark third-hour"></div>
+            {% endif %}
+            <div class="col">
+                <h4>{{forecast.weekday_txt}}</h4>
+                <h4>{{forecast.time_txt}}</h4>
+            </div>
+            <div class="col">
+                <img class="weather-icon" src="https://openweathermap.org/img/wn/{{forecast.weather[0].icon}}@2x.png">
+                <br>
+                {{forecast.weather[0].description}}
+            </div>
+            <div class="col">
+                Temp
+                <br>
+                <h4>{{forecast.main.temp}}&deg;</h4>C
+            </div>
+            <div class="col">
+                Wind
+                <br>
+                <h4>{{forecast.wind.speed}}</h4>m/s
+            </div>
+            <div class="col">
+                Rain
+                <br>
+                {% if forecast.rain %}
+                    <h5>{{forecast.rain['3h']}}</h5>mm
+                {% else %}
+                    <h4>- -</h4>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+    {% for event in events %}
+        <div class="event-row" style="height:{{event.height}}px; top:{{event.vertical_position}}px;" >
+            <h4>{{event.summary}}</h4>
+            {{event.start_txt}} - {{event.end_txt}}
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
+
+

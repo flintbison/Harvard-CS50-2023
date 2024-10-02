@@ -1,0 +1,27 @@
+(For each sort program I ran it using the time command against each of the text files 5 times,
+I then averaged those values in a spread sheet and plotted them in a chart to interpret the runtimes)
+
+sort1 uses: Bubble sort
+
+How do you know?: This algorithm outperforms sort3 on the large n sorted file (sorted50000.txt), indicating that
+might be due to it being bubble sort which has the best case of Ω(n) and worst case of O(n²).
+The best case for bubble sort happens when it iterates through an array of n items and on the first pass
+detects no swaps are required, confirming sortedness. Wheras selection sort has a time complexity of Θ(n²), so
+it is unlikely to be this algorithm because it can't take advantage of sorted arrays as an optimisation.
+
+sort2 uses: Merge sort
+
+How do you know?: Sort2 outperforms both of the other algorithms, particularly as n increases to 50000, we see
+that the runtime does not increase as much as sort1 and sort3 for random ordering. This is due to the time
+complexity of merge sort being Θ(n log n) for all cases, which is less complex than selection sort which is
+Θ(n²) and bubble sort has a best case of Ω(n) and worst case of O(n²). So while we see comparable speeds on
+sorted50000.txt for sort1 and sort2 (because sort1 can operate at Ω(n) for a sorted array). We see that all
+other cases for sort1 and sort3 are slower than sort2, especially at higher n.
+
+sort3 uses: Selection sort
+
+How do you know?: I think that sort3 uses selection sort since that algorithm has a time complexity of Θ(n²),
+so it has an identical best and worst case runtime. So the average runtimes observed are what I
+would expect to see for that. The text files at 5000, 10000 and 50000 n tend to cluster at those numbers of n,
+because all arrays are treated equal and the selection sort algortithm has no optimisations to take
+advantage of random, reversed or sorted ordering.
